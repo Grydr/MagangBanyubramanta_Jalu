@@ -1,0 +1,20 @@
+[35m[1mConsolidate compiler generated dependencies of target control_pub[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/control_pub.dir/src/controller_pub.cpp.o[0m
+[100%] [32m[1mLinking CXX executable control_pub[0m
+[100%] Built target control_pub
+-- Install configuration: ""
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/ament_index/resource_index/package_run_dependencies/controller
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/ament_index/resource_index/parent_prefix_path/controller
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/environment/ament_prefix_path.sh
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/environment/ament_prefix_path.dsv
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/environment/path.sh
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/environment/path.dsv
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/local_setup.bash
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/local_setup.sh
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/local_setup.zsh
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/local_setup.dsv
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/package.dsv
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/ament_index/resource_index/packages/controller
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/cmake/controllerConfig.cmake
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/cmake/controllerConfig-version.cmake
+-- Installing: /home/gryd/Project/ros2-ws/install/controller/share/controller/package.xml

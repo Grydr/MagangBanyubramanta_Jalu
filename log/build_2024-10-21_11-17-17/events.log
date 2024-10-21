@@ -1,0 +1,229 @@
+[0.000000] (-) TimerEvent: {}
+[0.000258] (-) JobUnselected: {'identifier': 'calculator'}
+[0.000459] (-) JobUnselected: {'identifier': 'interfaces'}
+[0.000503] (-) JobUnselected: {'identifier': 'pubsub'}
+[0.000534] (controller) JobQueued: {'identifier': 'controller', 'dependencies': OrderedDict()}
+[0.000565] (controller) JobStarted: {'identifier': 'controller'}
+[0.025803] (controller) JobProgress: {'identifier': 'controller', 'progress': 'cmake'}
+[0.026616] (controller) Command: {'cmd': ['/usr/bin/cmake', '/home/gryd/Project/ros2-ws/src/controller', '-DCMAKE_INSTALL_PREFIX=/home/gryd/Project/ros2-ws/install/controller'], 'cwd': '/home/gryd/Project/ros2-ws/build/controller', 'env': OrderedDict([('KDE_FULL_SESSION', 'true'), ('BLE_SESSION_ID', '1729417770.192678/13087'), ('MAIL', '/var/spool/mail/gryd'), ('USER', 'gryd'), ('PAM_KWALLET5_LOGIN', '/run/user/1000/kwallet5.socket'), ('LESS_TERMCAP_ue', '\x1b[0m'), ('LC_TIME', 'en_US.UTF-8'), ('HOSTNAME', 'gryd-thinkpad'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427/extensions/git/dist/askpass.sh'), ('GREP_COLOR', '37;45'), ('QT_WAYLAND_RECONNECT', '1'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427/bin/helpers/browser.sh'), ('HISTIGNORE', '&:[ ]*:exit:ls:bg:fg:history:clear'), ('LESS', '--ignore-case --jump-target=4 --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'), ('HOME', '/home/gryd'), ('NVM_COMPLETION', 'true'), ('KDE_APPLICATIONS_AS_SCOPE', '1'), ('OLDPWD', '/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427'), ('TERM_PROGRAM_VERSION', '1.94.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-9148c68e-5560-4186-b8e9-a7932a2c1bb6.sock'), ('ROS_PYTHON_VERSION', '3'), ('GTK_RC_FILES', '/etc/gtk/gtkrc:/home/gryd/.gtkrc:/home/gryd/.config/gtkrc'), ('KDE_SESSION_VERSION', '6'), ('PAGER', 'less'), ('VSCODE_GIT_ASKPASS_MAIN', '/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_US.UTF-8'), ('GREP_COLORS', 'mt=37;45'), ('VSCODE_GIT_ASKPASS_NODE', '/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427/node'), ('MANAGERPID', '1600'), ('SYSTEMD_EXEC_PID', '5138'), ('XDG_STATE_HOME', '/home/gryd/.local/state'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('container', 'sudo docker'), ('REMOTE_CONTAINERS', 'true'), ('NVM_DIR', '/home/gryd/.nvm'), ('TMUX_TMPDIR', '/var/tmp'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/gryd/Project/ros2-ws/install:/home/gryd/Project/ros2_humble/install'), ('XKB_DEFAULT_LAYOUT', 'us'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-837ac02a-c3d9-44c3-b23e-3b13d51a486d.sock'), ('LOGNAME', 'gryd'), ('LESS_TERMCAP_us', '\x1b[1;32m'), ('QT_AUTO_SCREEN_SCALE_FACTOR', '0'), ('JOURNAL_STREAM', '8:30765'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('MEMORY_PRESSURE_WATCH', '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/flatpak-session-helper.service/memory.pressure'), ('XDG_SESSION_CLASS', 'user'), ('TERMINFO_DIRS', '/usr/share/terminfo:/run/host/usr/share/terminfo'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('GTK2_RC_FILES', '/etc/gtk-2.0/gtkrc:/home/gryd/.gtkrc-2.0:/home/gryd/.config/gtkrc-2.0'), ('LC_COLLATE', 'C'), ('PATH', '/opt/ros/humble/bin:/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427/bin/remote-cli:/home/gryd/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('SESSION_MANAGER', 'local/gryd-thinkpad:@/tmp/.ICE-unix/1801,unix/gryd-thinkpad:/tmp/.ICE-unix/1801'), ('INVOCATION_ID', '35b452e42234446c845b11ca0e64acf1'), ('_ble_util_fdlist_cloexec', ''), ('XDG_MENU_PREFIX', 'plasma-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('ZIM_CONFIG_FILE', '/home/gryd/.config/zim/zimrc'), ('ICEAUTHORITY', '/run/user/1000/iceauth_fwBHEc'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/.X11-unix/X1","/run/user/1000/gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'KDE'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('XDG_DATA_HOME', '/home/gryd/.local/share'), ('XDG_CONFIG_HOME', '/home/gryd/.config'), ('XDG_SESSION_DESKTOP', 'KDE'), ('XAUTHORITY', '/run/user/1000/xauth_ywfVPb'), ('LS_COLORS', 'di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43'), ('NVM_LAZY_LOAD', 'true'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-4a0e2494db.sock'), ('TERM_PROGRAM', 'vscode'), ('STARSHIP_CONFIG', '/home/gryd/.config/starship/starship.toml'), ('AMENT_PREFIX_PATH', '/home/gryd/Project/ros2-ws/install/pubsub:/home/gryd/Project/ros2-ws/install/interfaces:/opt/ros/humble'), ('UID', '1000'), ('REMOTE_CONTAINERS_DISPLAY_SOCK', '/tmp/.X11-unix/X1'), ('SHELL', '/usr/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('LESS_TERMCAP_mb', '\x1b[1;31m'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('LINENO', '1'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('LESS_TERMCAP_md', '\x1b[1;31m'), ('ZSH_CUSTOM', '/home/gryd/.config/zsh/zsh-custom'), ('bleopt_connect_tty', '1'), ('PWD', '/home/gryd/Project/ros2-ws/build/controller'), ('CONTAINER_ID', 'ubuntu-distrobox'), ('QT_QPA_PLATFORM', 'xcb'), ('LESS_TERMCAP_me', '\x1b[0m'), ('NVM_CD_FLAGS', '-q'), ('XDG_DATA_DIRS', '/home/gryd/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:'), ('_ble_util_fdvars_export', ''), ('RANGER_LOAD_DEFAULT_RC', 'false'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('KDE_SESSION_UID', '1000'), ('COLCON', '1'), ('MEMORY_PRESSURE_WRITE', 'c29tZSAyMDAwMDAgMjAwMDAwMAA='), ('NVM_RC_VERSION', ''), ('EDITOR', 'nvim'), ('CMAKE_PREFIX_PATH', '/home/gryd/Project/ros2-ws/install/pubsub:/home/gryd/Project/ros2-ws/install/interfaces:/opt/ros/humble')]), 'shell': False}
+[0.098961] (-) TimerEvent: {}
+[0.199362] (-) TimerEvent: {}
+[0.299712] (-) TimerEvent: {}
+[0.301698] (controller) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.399815] (-) TimerEvent: {}
+[0.500357] (-) TimerEvent: {}
+[0.574434] (controller) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.588666] (controller) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.600494] (-) TimerEvent: {}
+[0.700438] (controller) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.700701] (-) TimerEvent: {}
+[0.720030] (controller) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.722079] (controller) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.724094] (controller) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.730898] (controller) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.800848] (-) TimerEvent: {}
+[0.858486] (controller) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.871663] (controller) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.872117] (controller) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.872801] (controller) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.890811] (controller) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.900950] (-) TimerEvent: {}
+[1.001322] (-) TimerEvent: {}
+[1.101770] (-) TimerEvent: {}
+[1.132867] (controller) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.201988] (-) TimerEvent: {}
+[1.302321] (-) TimerEvent: {}
+[1.304210] (controller) StdoutLine: {'line': b'-- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[1.402471] (-) TimerEvent: {}
+[1.476324] (controller) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.491248] (controller) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.503784] (-) TimerEvent: {}
+[1.517206] (controller) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.559966] (controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.594347] (controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.603896] (-) TimerEvent: {}
+[1.699855] (controller) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.704005] (-) TimerEvent: {}
+[1.705899] (controller) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.804114] (-) TimerEvent: {}
+[1.904540] (-) TimerEvent: {}
+[1.939016] (controller) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[1.989105] (controller) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[2.004693] (-) TimerEvent: {}
+[2.069493] (controller) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.088320] (controller) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[2.104824] (-) TimerEvent: {}
+[2.190244] (controller) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[2.190872] (controller) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[2.204935] (-) TimerEvent: {}
+[2.292159] (controller) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[2.293502] (controller) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[2.305028] (-) TimerEvent: {}
+[2.405330] (-) TimerEvent: {}
+[2.415947] (controller) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[2.459692] (controller) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[2.501002] (controller) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[2.505478] (-) TimerEvent: {}
+[2.605885] (-) TimerEvent: {}
+[2.645748] (controller) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[2.646496] (controller) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[2.646727] (controller) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[2.648379] (controller) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.651150] (controller) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[2.651457] (controller) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[2.653141] (controller) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[2.656820] (controller) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.672746] (controller) StdoutLine: {'line': b'-- Generating done\n'}
+[2.675579] (controller) StdoutLine: {'line': b'-- Build files have been written to: /home/gryd/Project/ros2-ws/build/controller\n'}
+[2.686067] (controller) CommandEnded: {'returncode': 0}
+[2.687006] (controller) JobProgress: {'identifier': 'controller', 'progress': 'build'}
+[2.687990] (controller) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/gryd/Project/ros2-ws/build/controller', '--', '-j4', '-l4'], 'cwd': '/home/gryd/Project/ros2-ws/build/controller', 'env': OrderedDict([('KDE_FULL_SESSION', 'true'), ('BLE_SESSION_ID', '1729417770.192678/13087'), ('MAIL', '/var/spool/mail/gryd'), ('USER', 'gryd'), ('PAM_KWALLET5_LOGIN', '/run/user/1000/kwallet5.socket'), ('LESS_TERMCAP_ue', '\x1b[0m'), ('LC_TIME', 'en_US.UTF-8'), ('HOSTNAME', 'gryd-thinkpad'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427/extensions/git/dist/askpass.sh'), ('GREP_COLOR', '37;45'), ('QT_WAYLAND_RECONNECT', '1'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427/bin/helpers/browser.sh'), ('HISTIGNORE', '&:[ ]*:exit:ls:bg:fg:history:clear'), ('LESS', '--ignore-case --jump-target=4 --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'), ('HOME', '/home/gryd'), ('NVM_COMPLETION', 'true'), ('KDE_APPLICATIONS_AS_SCOPE', '1'), ('OLDPWD', '/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427'), ('TERM_PROGRAM_VERSION', '1.94.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-9148c68e-5560-4186-b8e9-a7932a2c1bb6.sock'), ('ROS_PYTHON_VERSION', '3'), ('GTK_RC_FILES', '/etc/gtk/gtkrc:/home/gryd/.gtkrc:/home/gryd/.config/gtkrc'), ('KDE_SESSION_VERSION', '6'), ('PAGER', 'less'), ('VSCODE_GIT_ASKPASS_MAIN', '/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_US.UTF-8'), ('GREP_COLORS', 'mt=37;45'), ('VSCODE_GIT_ASKPASS_NODE', '/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427/node'), ('MANAGERPID', '1600'), ('SYSTEMD_EXEC_PID', '5138'), ('XDG_STATE_HOME', '/home/gryd/.local/state'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('container', 'sudo docker'), ('REMOTE_CONTAINERS', 'true'), ('NVM_DIR', '/home/gryd/.nvm'), ('TMUX_TMPDIR', '/var/tmp'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/gryd/Project/ros2-ws/install:/home/gryd/Project/ros2_humble/install'), ('XKB_DEFAULT_LAYOUT', 'us'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-837ac02a-c3d9-44c3-b23e-3b13d51a486d.sock'), ('LOGNAME', 'gryd'), ('LESS_TERMCAP_us', '\x1b[1;32m'), ('QT_AUTO_SCREEN_SCALE_FACTOR', '0'), ('JOURNAL_STREAM', '8:30765'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('MEMORY_PRESSURE_WATCH', '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/flatpak-session-helper.service/memory.pressure'), ('XDG_SESSION_CLASS', 'user'), ('TERMINFO_DIRS', '/usr/share/terminfo:/run/host/usr/share/terminfo'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('GTK2_RC_FILES', '/etc/gtk-2.0/gtkrc:/home/gryd/.gtkrc-2.0:/home/gryd/.config/gtkrc-2.0'), ('LC_COLLATE', 'C'), ('PATH', '/opt/ros/humble/bin:/var/tmp/.vscode-server/bin/384ff7382de624fb94dbaf6da11977bba1ecd427/bin/remote-cli:/home/gryd/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('SESSION_MANAGER', 'local/gryd-thinkpad:@/tmp/.ICE-unix/1801,unix/gryd-thinkpad:/tmp/.ICE-unix/1801'), ('INVOCATION_ID', '35b452e42234446c845b11ca0e64acf1'), ('_ble_util_fdlist_cloexec', ''), ('XDG_MENU_PREFIX', 'plasma-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('ZIM_CONFIG_FILE', '/home/gryd/.config/zim/zimrc'), ('ICEAUTHORITY', '/run/user/1000/iceauth_fwBHEc'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/.X11-unix/X1","/run/user/1000/gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'KDE'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('XDG_DATA_HOME', '/home/gryd/.local/share'), ('XDG_CONFIG_HOME', '/home/gryd/.config'), ('XDG_SESSION_DESKTOP', 'KDE'), ('XAUTHORITY', '/run/user/1000/xauth_ywfVPb'), ('LS_COLORS', 'di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43'), ('NVM_LAZY_LOAD', 'true'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-4a0e2494db.sock'), ('TERM_PROGRAM', 'vscode'), ('STARSHIP_CONFIG', '/home/gryd/.config/starship/starship.toml'), ('AMENT_PREFIX_PATH', '/home/gryd/Project/ros2-ws/install/pubsub:/home/gryd/Project/ros2-ws/install/interfaces:/opt/ros/humble'), ('UID', '1000'), ('REMOTE_CONTAINERS_DISPLAY_SOCK', '/tmp/.X11-unix/X1'), ('SHELL', '/usr/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('LESS_TERMCAP_mb', '\x1b[1;31m'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('LINENO', '1'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('LESS_TERMCAP_md', '\x1b[1;31m'), ('ZSH_CUSTOM', '/home/gryd/.config/zsh/zsh-custom'), ('bleopt_connect_tty', '1'), ('PWD', '/home/gryd/Project/ros2-ws/build/controller'), ('CONTAINER_ID', 'ubuntu-distrobox'), ('QT_QPA_PLATFORM', 'xcb'), ('LESS_TERMCAP_me', '\x1b[0m'), ('NVM_CD_FLAGS', '-q'), ('XDG_DATA_DIRS', '/home/gryd/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:'), ('_ble_util_fdvars_export', ''), ('RANGER_LOAD_DEFAULT_RC', 'false'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('KDE_SESSION_UID', '1000'), ('COLCON', '1'), ('MEMORY_PRESSURE_WRITE', 'c29tZSAyMDAwMDAgMjAwMDAwMAA='), ('NVM_RC_VERSION', ''), ('EDITOR', 'nvim'), ('CMAKE_PREFIX_PATH', '/home/gryd/Project/ros2-ws/install/pubsub:/home/gryd/Project/ros2-ws/install/interfaces:/opt/ros/humble')]), 'shell': False}
+[2.706017] (-) TimerEvent: {}
+[2.760999] (controller) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/control_pub.dir/src/controller_pub.cpp.o\x1b[0m\n'}
+[2.806130] (-) TimerEvent: {}
+[2.906561] (-) TimerEvent: {}
+[3.007000] (-) TimerEvent: {}
+[3.107392] (-) TimerEvent: {}
+[3.207833] (-) TimerEvent: {}
+[3.308268] (-) TimerEvent: {}
+[3.408655] (-) TimerEvent: {}
+[3.509091] (-) TimerEvent: {}
+[3.609478] (-) TimerEvent: {}
+[3.709875] (-) TimerEvent: {}
+[3.810285] (-) TimerEvent: {}
+[3.910752] (-) TimerEvent: {}
+[4.011156] (-) TimerEvent: {}
+[4.111597] (-) TimerEvent: {}
+[4.212016] (-) TimerEvent: {}
+[4.312474] (-) TimerEvent: {}
+[4.412967] (-) TimerEvent: {}
+[4.513318] (-) TimerEvent: {}
+[4.613690] (-) TimerEvent: {}
+[4.714186] (-) TimerEvent: {}
+[4.814522] (-) TimerEvent: {}
+[4.914865] (-) TimerEvent: {}
+[5.015186] (-) TimerEvent: {}
+[5.115545] (-) TimerEvent: {}
+[5.215895] (-) TimerEvent: {}
+[5.316293] (-) TimerEvent: {}
+[5.416649] (-) TimerEvent: {}
+[5.517002] (-) TimerEvent: {}
+[5.617409] (-) TimerEvent: {}
+[5.717760] (-) TimerEvent: {}
+[5.818123] (-) TimerEvent: {}
+[5.918477] (-) TimerEvent: {}
+[6.018908] (-) TimerEvent: {}
+[6.119370] (-) TimerEvent: {}
+[6.219705] (-) TimerEvent: {}
+[6.320092] (-) TimerEvent: {}
+[6.420468] (-) TimerEvent: {}
+[6.520875] (-) TimerEvent: {}
+[6.621322] (-) TimerEvent: {}
+[6.721955] (-) TimerEvent: {}
+[6.822542] (-) TimerEvent: {}
+[6.860284] (controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40\x1b[m\x1b[K,\n'}
+[6.861691] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24\x1b[m\x1b[K,\n'}
+[6.862170] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[6.862671] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25\x1b[m\x1b[K,\n'}
+[6.862923] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[6.863081] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[6.863258] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37\x1b[m\x1b[K,\n'}
+[6.863380] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25\x1b[m\x1b[K,\n'}
+[6.863499] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[6.863634] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155\x1b[m\x1b[K,\n'}
+[6.863877] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:6\x1b[m\x1b[K:\n'}
+[6.864081] (controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KControllerPub::ControllerPub()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.864736] (controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:17:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of non-static member function \xe2\x80\x98\x1b[01m\x1b[Krclcpp::Logger rclcpp::Node::get_logger() const\x1b[m\x1b[K\xe2\x80\x99\n'}
+[6.865584] (controller) StderrLine: {'line': b'   17 |          \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger, "Controller Pub started");\n'}
+[6.865869] (controller) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.866105] (controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28\x1b[m\x1b[K,\n'}
+[6.866293] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:22\x1b[m\x1b[K,\n'}
+[6.866444] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155\x1b[m\x1b[K,\n'}
+[6.866592] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:6\x1b[m\x1b[K:\n'}
+[6.866734] (controller) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:142:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[6.866869] (controller) StderrLine: {'line': b'  142 |   \x1b[01;36m\x1b[Kget_logger\x1b[m\x1b[K() const;\n'}
+[6.867010] (controller) StderrLine: {'line': b'      |   \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.867211] (controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40\x1b[m\x1b[K,\n'}
+[6.867372] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24\x1b[m\x1b[K,\n'}
+[6.867525] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[6.867738] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25\x1b[m\x1b[K,\n'}
+[6.867963] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[6.868118] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[6.868273] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37\x1b[m\x1b[K,\n'}
+[6.868410] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25\x1b[m\x1b[K,\n'}
+[6.868534] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[6.868667] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155\x1b[m\x1b[K,\n'}
+[6.868869] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:6\x1b[m\x1b[K:\n'}
+[6.869018] (controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:17:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[6.869172] (controller) StderrLine: {'line': b'   17 |          \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger, "Controller Pub started");\n'}
+[6.869340] (controller) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.869494] (controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:17:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[6.869647] (controller) StderrLine: {'line': b'   17 |          \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger, "Controller Pub started");\n'}
+[6.869800] (controller) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.869946] (controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:17:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[6.870105] (controller) StderrLine: {'line': b'   17 |          \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(this->get_logger, "Controller Pub started");\n'}
+[6.870256] (controller) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.870808] (controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24\x1b[m\x1b[K,\n'}
+[6.871112] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40\x1b[m\x1b[K,\n'}
+[6.871289] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24\x1b[m\x1b[K,\n'}
+[6.871459] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[6.871626] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25\x1b[m\x1b[K,\n'}
+[6.871790] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[6.871964] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[6.872190] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37\x1b[m\x1b[K,\n'}
+[6.872340] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25\x1b[m\x1b[K,\n'}
+[6.872489] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[6.872635] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155\x1b[m\x1b[K,\n'}
+[6.872779] (controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:6\x1b[m\x1b[K:\n'}
+[6.872896] (controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:17:28:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of member function \xe2\x80\x98\x1b[01m\x1b[Krclcpp::Logger rclcpp::Node::get_logger() const\x1b[m\x1b[K\xe2\x80\x99 (did you forget the \xe2\x80\x98\x1b[01m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99 ?)\n'}
+[6.873013] (controller) StderrLine: {'line': b'   17 |          RCLCPP_INFO(this->\x1b[01;31m\x1b[Kg\x1b[m\x1b[Ket_logger, "Controller Pub started");\n'}
+[6.873134] (controller) StderrLine: {'line': b'      |                            \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[6.873251] (controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/gryd/Project/ros2-ws/src/controller/src/controller_pub.cpp:17:28:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of member function \xe2\x80\x98\x1b[01m\x1b[Krclcpp::Logger rclcpp::Node::get_logger() const\x1b[m\x1b[K\xe2\x80\x99 (did you forget the \xe2\x80\x98\x1b[01m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99 ?)\n'}
+[6.873387] (controller) StderrLine: {'line': b'   17 |          RCLCPP_INFO(this->\x1b[01;31m\x1b[Kg\x1b[m\x1b[Ket_logger, "Controller Pub started");\n'}
+[6.873510] (controller) StderrLine: {'line': b'      |                            \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[6.922664] (-) TimerEvent: {}
+[7.023128] (-) TimerEvent: {}
+[7.123569] (-) TimerEvent: {}
+[7.223980] (-) TimerEvent: {}
+[7.324404] (-) TimerEvent: {}
+[7.424833] (-) TimerEvent: {}
+[7.525285] (-) TimerEvent: {}
+[7.625767] (-) TimerEvent: {}
+[7.726219] (-) TimerEvent: {}
+[7.826680] (-) TimerEvent: {}
+[7.927180] (-) TimerEvent: {}
+[8.027641] (-) TimerEvent: {}
+[8.128105] (-) TimerEvent: {}
+[8.228458] (-) TimerEvent: {}
+[8.328806] (-) TimerEvent: {}
+[8.429293] (-) TimerEvent: {}
+[8.529653] (-) TimerEvent: {}
+[8.630294] (-) TimerEvent: {}
+[8.731469] (-) TimerEvent: {}
+[8.831859] (-) TimerEvent: {}
+[8.932254] (-) TimerEvent: {}
+[9.032653] (-) TimerEvent: {}
+[9.133074] (-) TimerEvent: {}
+[9.233483] (-) TimerEvent: {}
+[9.333909] (-) TimerEvent: {}
+[9.434288] (-) TimerEvent: {}
+[9.534726] (-) TimerEvent: {}
+[9.635192] (-) TimerEvent: {}
+[9.735695] (-) TimerEvent: {}
+[9.836181] (-) TimerEvent: {}
+[9.936614] (-) TimerEvent: {}
+[10.037120] (-) TimerEvent: {}
+[10.137560] (-) TimerEvent: {}
+[10.237950] (-) TimerEvent: {}
+[10.338343] (-) TimerEvent: {}
+[10.438743] (-) TimerEvent: {}
+[10.539207] (-) TimerEvent: {}
+[10.639650] (-) TimerEvent: {}
+[10.740132] (-) TimerEvent: {}
+[10.818851] (controller) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/control_pub.dir/build.make:76: CMakeFiles/control_pub.dir/src/controller_pub.cpp.o] Error 1\n'}
+[10.819349] (controller) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/control_pub.dir/all] Error 2\n'}
+[10.819663] (controller) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[10.821881] (controller) CommandEnded: {'returncode': 2}
+[10.840236] (-) TimerEvent: {}
+[10.882274] (controller) JobEnded: {'identifier': 'controller', 'rc': 2}
+[10.895400] (-) EventReactorShutdown: {}

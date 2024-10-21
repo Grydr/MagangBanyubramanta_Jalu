@@ -1,0 +1,6 @@
+Invoking command in '/home/gryd/Project/ros2-ws/build/interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/gryd/Project/ros2-ws/src/interfaces -DCMAKE_INSTALL_PREFIX=/home/gryd/Project/ros2-ws/install/interfaces
+Invoked command in '/home/gryd/Project/ros2-ws/build/interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/gryd/Project/ros2-ws/src/interfaces -DCMAKE_INSTALL_PREFIX=/home/gryd/Project/ros2-ws/install/interfaces
+Invoking command in '/home/gryd/Project/ros2-ws/build/interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/gryd/Project/ros2-ws/build/interfaces -- -j4 -l4
+Invoked command in '/home/gryd/Project/ros2-ws/build/interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/gryd/Project/ros2-ws/build/interfaces -- -j4 -l4
+Invoking command in '/home/gryd/Project/ros2-ws/build/interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/gryd/Project/ros2-ws/build/interfaces
+Invoked command in '/home/gryd/Project/ros2-ws/build/interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/gryd/Project/ros2-ws/build/interfaces

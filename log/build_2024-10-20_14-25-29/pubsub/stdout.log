@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target sub[0m
+[35m[1mConsolidate compiler generated dependencies of target pub[0m
+[ 50%] Built target sub
+[100%] Built target pub
+-- Install configuration: ""
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/lib/pubsub/pub
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/lib/pubsub/sub
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/ament_index/resource_index/package_run_dependencies/pubsub
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/ament_index/resource_index/parent_prefix_path/pubsub
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/environment/ament_prefix_path.sh
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/environment/path.sh
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/environment/path.dsv
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/local_setup.bash
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/local_setup.sh
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/local_setup.zsh
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/local_setup.dsv
+-- Installing: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/package.dsv
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/ament_index/resource_index/packages/pubsub
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/cmake/pubsubConfig.cmake
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/cmake/pubsubConfig-version.cmake
+-- Up-to-date: /home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/package.xml

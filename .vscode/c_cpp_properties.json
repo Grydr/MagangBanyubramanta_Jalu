@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/gryd/Project/ros2-ws/install/interfaces/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/gryd/Project/ros2-ws/src/calculator/include/**",
+        "/home/gryd/Project/ros2-ws/src/interfaces/include/**",
+        "/home/gryd/Project/ros2-ws/src/magang_1/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

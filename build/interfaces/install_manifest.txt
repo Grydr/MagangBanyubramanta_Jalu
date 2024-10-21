@@ -1,0 +1,15 @@
+/home/gryd/Project/ros2-ws/install/interfaces/share/ament_index/resource_index/package_run_dependencies/interfaces
+/home/gryd/Project/ros2-ws/install/interfaces/share/ament_index/resource_index/parent_prefix_path/interfaces
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/environment/ament_prefix_path.sh
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/environment/ament_prefix_path.dsv
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/environment/path.sh
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/environment/path.dsv
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/local_setup.bash
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/local_setup.sh
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/local_setup.zsh
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/local_setup.dsv
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/package.dsv
+/home/gryd/Project/ros2-ws/install/interfaces/share/ament_index/resource_index/packages/interfaces
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/cmake/interfacesConfig.cmake
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/cmake/interfacesConfig-version.cmake
+/home/gryd/Project/ros2-ws/install/interfaces/share/interfaces/package.xml

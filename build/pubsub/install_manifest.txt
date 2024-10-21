@@ -1,0 +1,17 @@
+/home/gryd/Project/ros2-ws/install/pubsub/lib/pubsub/pub
+/home/gryd/Project/ros2-ws/install/pubsub/lib/pubsub/sub
+/home/gryd/Project/ros2-ws/install/pubsub/share/ament_index/resource_index/package_run_dependencies/pubsub
+/home/gryd/Project/ros2-ws/install/pubsub/share/ament_index/resource_index/parent_prefix_path/pubsub
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/environment/ament_prefix_path.sh
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/environment/ament_prefix_path.dsv
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/environment/path.sh
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/environment/path.dsv
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/local_setup.bash
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/local_setup.sh
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/local_setup.zsh
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/local_setup.dsv
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/package.dsv
+/home/gryd/Project/ros2-ws/install/pubsub/share/ament_index/resource_index/packages/pubsub
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/cmake/pubsubConfig.cmake
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/cmake/pubsubConfig-version.cmake
+/home/gryd/Project/ros2-ws/install/pubsub/share/pubsub/package.xml

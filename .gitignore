@@ -1,3 +1,10 @@
+log
+build
+install
+.vscode
+
+
+
 # Prerequisites
 *.d
 

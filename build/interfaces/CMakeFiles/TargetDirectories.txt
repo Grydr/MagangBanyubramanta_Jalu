@@ -1,9 +1,0 @@
-/home/gryd/Project/ros2-ws/build/interfaces/CMakeFiles/uninstall.dir
-/home/gryd/Project/ros2-ws/build/interfaces/CMakeFiles/interfaces_uninstall.dir
-/home/gryd/Project/ros2-ws/build/interfaces/CMakeFiles/test.dir
-/home/gryd/Project/ros2-ws/build/interfaces/CMakeFiles/edit_cache.dir
-/home/gryd/Project/ros2-ws/build/interfaces/CMakeFiles/rebuild_cache.dir
-/home/gryd/Project/ros2-ws/build/interfaces/CMakeFiles/list_install_components.dir
-/home/gryd/Project/ros2-ws/build/interfaces/CMakeFiles/install.dir
-/home/gryd/Project/ros2-ws/build/interfaces/CMakeFiles/install/local.dir
-/home/gryd/Project/ros2-ws/build/interfaces/CMakeFiles/install/strip.dir

@@ -1,4 +1,0 @@
-Invoking command in '/home/gryd/Project/ros2-ws/build/pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/gryd/Project/ros2-ws/build/pubsub -- -j4 -l4
-Invoked command in '/home/gryd/Project/ros2-ws/build/pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/gryd/Project/ros2-ws/build/pubsub -- -j4 -l4
-Invoking command in '/home/gryd/Project/ros2-ws/build/pubsub': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/gryd/Project/ros2-ws/build/pubsub
-Invoked command in '/home/gryd/Project/ros2-ws/build/pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/gryd/Project/ros2-ws/build/pubsub

@@ -1,4 +1,0 @@
-Invoking command in '/home/gryd/Project/ros2-ws/build/controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/gryd/Project/ros2-ws/src/controller -DCMAKE_INSTALL_PREFIX=/home/gryd/Project/ros2-ws/install/controller
-Invoked command in '/home/gryd/Project/ros2-ws/build/controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/gryd/Project/ros2-ws/src/controller -DCMAKE_INSTALL_PREFIX=/home/gryd/Project/ros2-ws/install/controller
-Invoking command in '/home/gryd/Project/ros2-ws/build/controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/gryd/Project/ros2-ws/build/controller -- -j4 -l4
-Invoked command in '/home/gryd/Project/ros2-ws/build/controller' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/gryd/Project/ros2-ws/build/controller -- -j4 -l4

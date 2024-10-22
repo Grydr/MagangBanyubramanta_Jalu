@@ -8,14 +8,14 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(interfaces REQUIRED)
 
-add_executable(control_pub src/controller_pub.cpp)
-ament_target_dependencies(control_pub rclcpp geometry_msgs sensor_msgs)
+add_executable(control_node src/controller.cpp)
+ament_target_dependencies(control_node rclcpp sensor_msgs interfaces)
 
 install(TARGETS
-  control_pub
+  control_node
   DESTINATION lib/${PROJECT_NAME})
 
 # uncomment the following section in order to fill in

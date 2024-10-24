@@ -30,10 +30,10 @@ class ControllerNode : public rclcpp::Node {
    private:
       rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr sub_;
       rclcpp::Publisher<interfaces::msg::Commands>::SharedPtr pub_;
-      float temp_depth;
-      float xy_range = 250;
-      float yaw_range = 180;
-      float depth_range = 10;
+      int temp_depth;
+      int xy_range = 250;
+      int yaw_range = 180;
+      int depth_range = 10;
 
       void controller_callback(const sensor_msgs::msg::Joy msg) {
          auto cmd = interfaces::msg::Commands();

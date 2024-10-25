@@ -2,7 +2,6 @@ log
 build
 install
 .vscode
-.gitmodule
 src/BehaviorTree.CPP
 
 

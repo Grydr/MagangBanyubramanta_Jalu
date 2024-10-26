@@ -56,16 +56,20 @@ class ControllerNode : public rclcpp::Node {
                temp_depth++;
             }
          // yaw right
-         // if (temp_yaw == 180 || temp_yaw == -180) {
-         //    temp_yaw = temp_yaw * -1;
-         //    if ((msg.axes[3] * -1) > 0) {
-         //       temp_yaw += msg.axes[3]* yaw_range;
-         //    }
-         // // yaw left
-         //    if ((msg.axes[3] * -1) < 0) {
-         //       temp_yaw -= msg.axes[3]* yaw_range;
-         //    }
-         // }
+            if ((msg.axes[3] * -1) > 0) {
+               temp_yaw += msg.axes[3] * yaw_range;
+               if (temp_yaw > 180) {
+                  temp_yaw = yaw_range;
+               }
+            }
+         // yaw left
+            if (msg.axes[3] > 0) {
+               temp_yaw += msg.axes[3] * yaw_range;
+               // temp_yaw--;
+               if (temp_yaw < -180) {
+                  temp_yaw = yaw_range * -1;
+               }
+            }
 
             auto cmd = interfaces::msg::Commands();
             cmd.x_cmd = msg.axes[0] * x_range; // move left & right using left stick

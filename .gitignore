@@ -2,7 +2,7 @@ log
 build
 install
 .vscode
-
+src/BehaviorTree.CPP
 
 
 # Prerequisites

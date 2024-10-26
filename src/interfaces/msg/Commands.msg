@@ -1,4 +1,4 @@
-int32 x_cmd
-int32 y_cmd
-int32 depth
-int32 yaw
+float32 x_cmd
+float32 y_cmd
+float32 depth
+float32 yaw

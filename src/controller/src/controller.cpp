@@ -23,6 +23,8 @@ using namespace std::chrono_literals;
          1        Up_Down_StickLeft
          3        Left_Right_StickRight
          4        Up_Down_StickRight
+         2        LT
+         5        RT
 */
 
 class ControllerNode : public rclcpp::Node {
@@ -30,21 +32,53 @@ class ControllerNode : public rclcpp::Node {
    private:
       rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr sub_;
       rclcpp::Publisher<interfaces::msg::Commands>::SharedPtr pub_;
-      int temp_depth;
-      int xy_range = 250;
-      int yaw_range = 180;
+      int x_range = -250;
+      int y_range = 250;
+      int yaw_range = -180;
       int depth_range = 10;
+      int temp_depth = 0;
+      int temp_yaw = 0;
+      
+      void controller_callback(const sensor_msgs::msg::Joy &msg) {
+         // use axes[4] for depth
+         // if axes[4] is 1(up) then decrement depth;
+            if (msg.axes[4] > 0) {
+               if(temp_depth == 0) {
+                  temp_depth = temp_depth + 1 ;
+               }
+               temp_depth--;
+            }
+         // if axes[4] is -1(down) then increment depth;
+            if (msg.axes[4] < 0) {
+               if(temp_depth == 10) {
+                  temp_depth = temp_depth - 1;
+               }
+               temp_depth++;
+            }
+         // yaw right
+            if ((msg.axes[3] * -1) > 0) {
+               temp_yaw += msg.axes[3] * yaw_range;
+               if (temp_yaw > 180) {
+                  temp_yaw = yaw_range;
+               }
+            }
+         // yaw left
+            if (msg.axes[3] > 0) {
+               temp_yaw += msg.axes[3] * yaw_range;
+               // temp_yaw--;
+               if (temp_yaw < -180) {
+                  temp_yaw = yaw_range * -1;
+               }
+            }
 
-      void controller_callback(const sensor_msgs::msg::Joy msg) {
-         auto cmd = interfaces::msg::Commands();
-         cmd.x_cmd = msg.axes[0] * xy_range; // move left & right using left stick
-         cmd.y_cmd = msg.axes[1] * xy_range; // move up & down using left stick
-         temp_depth = std::max(0.0f, msg.axes[4]);
-         cmd.depth = temp_depth * depth_range; // move up & down using right stick
-         cmd.yaw = msg.axes[3] * yaw_range; // move left & right using right stick
+            auto cmd = interfaces::msg::Commands();
+            cmd.x_cmd = msg.axes[0] * x_range; // move left & right using left stick
+            cmd.y_cmd = msg.axes[1] * y_range; // move up & down using left stick
+            cmd.depth = temp_depth;
+            cmd.yaw = temp_yaw;
 
-         // RCLCPP_INFO(this->get_logger(), "Parsing controller data");
-         pub_->publish(cmd);
+            // RCLCPP_INFO(this->get_logger(), "Parsing controller data");
+            pub_->publish(cmd);
       }
 
    public:

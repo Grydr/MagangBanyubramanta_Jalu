@@ -42,43 +42,35 @@ class ControllerNode : public rclcpp::Node {
       void controller_callback(const sensor_msgs::msg::Joy &msg) {
          // use axes[4] for depth
          // if axes[4] is 1(up) then decrement depth;
-            if (msg.axes[4] > 0) {
-               if(temp_depth == 0) {
-                  temp_depth = temp_depth + 1 ;
-               }
-               temp_depth--;
+         if (msg.axes[4] > 0) {
+            if(temp_depth == 0) {
+               temp_depth = temp_depth + 1 ;
             }
+            temp_depth--;
+         }
          // if axes[4] is -1(down) then increment depth;
-            if (msg.axes[4] < 0) {
-               if(temp_depth == 10) {
-                  temp_depth = temp_depth - 1;
-               }
-               temp_depth++;
+         if (msg.axes[4] < 0) {
+            if(temp_depth == 10) {
+               temp_depth = temp_depth - 1;
             }
-         // yaw right
-            if ((msg.axes[3] * -1) > 0) {
-               temp_yaw += msg.axes[3] * yaw_range;
-               if (temp_yaw > 180) {
-                  temp_yaw = yaw_range;
-               }
-            }
-         // yaw left
-            if (msg.axes[3] > 0) {
-               temp_yaw += msg.axes[3] * yaw_range;
-               // temp_yaw--;
-               if (temp_yaw < -180) {
-                  temp_yaw = yaw_range * -1;
-               }
-            }
+            temp_depth++;
+         }
 
-            auto cmd = interfaces::msg::Commands();
-            cmd.x_cmd = msg.axes[0] * x_range; // move left & right using left stick
-            cmd.y_cmd = msg.axes[1] * y_range; // move up & down using left stick
-            cmd.depth = temp_depth;
-            cmd.yaw = temp_yaw;
+         temp_yaw += msg.axes[3] * yaw_range;
+         if (temp_yaw < -180) {
+            temp_yaw = yaw_range * -1;
+         } else if ( temp_yaw > 180) {
+            temp_yaw = yaw_range;
+         }
 
-            // RCLCPP_INFO(this->get_logger(), "Parsing controller data");
-            pub_->publish(cmd);
+         auto cmd = interfaces::msg::Commands();
+         cmd.x_cmd = msg.axes[0] * x_range; // move left & right using left stick
+         cmd.y_cmd = msg.axes[1] * y_range; // move up & down using left stick
+         cmd.depth = temp_depth;
+         cmd.yaw = temp_yaw;
+
+         // RCLCPP_INFO(this->get_logger(), "Parsing controller data");
+         pub_->publish(cmd);
       }
 
    public:

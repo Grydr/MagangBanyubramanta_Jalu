@@ -61,10 +61,7 @@ class OpenCVNode : public rclcpp::Node {
          //morphological closing (fill small holes in the foreground)
          cv::dilate( imgThresh, imgThresh, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5)) ); 
          cv::erode(imgThresh, imgThresh, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5)) );
-
-         // cv::imshow("Thresh Image", imgThresh); //show the thresholded image
-         // cv::imshow("Original", frame); //show the original image
-
+         
          publish_raw(frame, pub_raw_);
          publish_masked(imgThresh, pub_mask_);
       }

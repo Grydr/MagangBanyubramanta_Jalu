@@ -17,7 +17,7 @@ class OpenCVNode : public rclcpp::Node {
          pub_mask_ = this->create_publisher<sensor_msgs::msg::Image>("mask", 10);
 
          // open video file
-         cap_.open("../fourth.mp4");
+         cap_.open("src/opencv/include/fourth.mp4");
          if (!cap_.isOpened()) {
             RCLCPP_ERROR(this->get_logger(), "Failed to open");
             rclcpp::shutdown();
@@ -65,12 +65,17 @@ class OpenCVNode : public rclcpp::Node {
          // cv::imshow("Thresh Image", imgThresh); //show the thresholded image
          // cv::imshow("Original", frame); //show the original image
 
-         publish_image(frame, pub_raw_);
-         publish_image(imgThresh, pub_mask_);
+         publish_raw(frame, pub_raw_);
+         publish_masked(imgThresh, pub_mask_);
       }
 
-      void publish_image(const cv::Mat &img, rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr &pub) {
+      void publish_raw(const cv::Mat &img, rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr &pub) {
          auto msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", img).toImageMsg();
+         pub->publish(*msg);         
+      }
+
+      void publish_masked(const cv::Mat &img, rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr &pub) {
+         auto msg = cv_bridge::CvImage(std_msgs::msg::Header(), "mono8", img).toImageMsg();
          pub->publish(*msg);         
       }
 

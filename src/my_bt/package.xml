@@ -1,0 +1,8 @@
+<root BTCPP_FORMAT="4">
+   <BehaviorTree ID="MainTree">
+      <Sequence name="root_sequence">
+         <InLogger name="in_logger" />
+         <OutLogger name="out_logger" />
+      </Sequence>
+   </BehaviorTree>
+</root>

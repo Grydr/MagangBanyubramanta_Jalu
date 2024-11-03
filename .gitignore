@@ -5,6 +5,7 @@ install
 src/BehaviorTree.CPP
 src/bt_trial/
 src/my_bt/
+src/pubsub/
 
 
 # Prerequisites

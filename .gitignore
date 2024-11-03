@@ -4,6 +4,7 @@ install
 .vscode
 src/BehaviorTree.CPP
 src/bt_trial/
+src/my_bt/
 
 
 # Prerequisites

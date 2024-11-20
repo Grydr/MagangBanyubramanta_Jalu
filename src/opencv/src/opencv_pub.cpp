@@ -17,7 +17,7 @@ class OpenCVNode : public rclcpp::Node {
          pub_mask_ = this->create_publisher<sensor_msgs::msg::Image>("mask", 10);
 
          // open video file
-         cap_.open("src/opencv/include/fourth.mp4");
+         cap_.open("src/opencv/include/third.mp4");
          if (!cap_.isOpened()) {
             RCLCPP_ERROR(this->get_logger(), "Failed to open");
             rclcpp::shutdown();

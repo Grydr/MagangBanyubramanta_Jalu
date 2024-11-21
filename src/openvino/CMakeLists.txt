@@ -8,21 +8,28 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(openCV REQUIRED)
-find_package(openVINO REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(OpenCV REQUIRED)
+find_package(OpenVINO REQUIRED)
+find_package(interfaces REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS} ${OpenVINO_INCLUDE_DIRS})
 
 add_executable(object_detection src/object-detection.cpp)
-ament_target_dependencies(object_detection rclcpp openCV openVINO std_msgs sensor_msgs cv_bridge)
+ament_target_dependencies(object_detection rclcpp OpenCV OpenVINO std_msgs sensor_msgs cv_bridge interfaces)
+
+target_link_libraries(object_detection
+  ${OpenCV_LIBS}
+  openvino::runtime
+)
 
 install(TARGETS
   object_detection
   DESTINATION lib/${PROJECT_NAME}
 )
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

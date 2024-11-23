@@ -17,7 +17,18 @@ class StmComm : public rclcpp::Node {
    void port_config() {
       const std::string PORT = "/dev/ttyACM0";
       try {
+<<<<<<< HEAD
          port_(io_, PORT);
+=======
+         port_.open(PORT);
+         port_.set_option(asio::serial_port_base::flow_control(
+             asio::serial_port_base::flow_control::software));
+         port_.set_option(asio::serial_port_base::parity(
+             asio::serial_port_base::parity::none));
+         port_.set_option(asio::serial_port_base::stop_bits(
+             asio::serial_port_base::stop_bits::one));
+         port_.set_option(asio::serial_port_base::character_size(8));
+>>>>>>> stm32-comm
          port_.set_option(asio::serial_port_base::baud_rate(115200));
          port_.set_option(asio::serial_port_base::flow_control(
              asio::serial_port_base::flow_control::software));
@@ -48,13 +59,21 @@ class StmComm : public rclcpp::Node {
    }
 
   public:
+<<<<<<< HEAD
    StmComm() : Node("communication_node") {
+=======
+   StmComm() : Node("stm_comm"), port_(io_) {
+      port_config();
+>>>>>>> stm32-comm
       subscriber_ = this->create_subscription<interfaces::msg::Commands>(
           "cmd_vel", 10,
           std::bind(&StmComm::communication_callback, this,
                     std::placeholders::_1));
+<<<<<<< HEAD
 
       port_config();
+=======
+>>>>>>> stm32-comm
    }
 };
 

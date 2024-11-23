@@ -8,6 +8,17 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(interfaces REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(Boost REQUIRED COMPONENTS thread system)
+
+add_executable(stm_comm src/ros-stm.cpp)
+ament_target_dependencies(stm_comm rclcpp interfaces std_msgs Boost)
+
+install(TARGETS
+  stm_comm
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

@@ -1,0 +1,247 @@
+#include <chrono>
+#include <string>
+#include <iostream>
+#include <memory>
+#include <vector>
+
+#include "rclcpp/rclcpp.hpp"
+#include "sensor_msgs/msg/image.hpp"
+#include "std_msgs/msg/header.hpp"
+#include <cv_bridge/cv_bridge.h> 
+#include <opencv2/opencv.hpp> 
+#include <openvino/openvino.hpp>
+#include "interfaces/msg/object.hpp"
+
+
+#define N_CLASSES 80
+#define INPUT_WIDTH 640
+#define INPUT_HEIGHT 640
+#define CONF_THRESH 0.4
+#define SCORE_THRESH 0.4
+#define NMS_THRESH 0.4
+
+const char* coconame[] = { "Baskom", "Celana", "Flare" };
+
+const float color_list[80][3] =
+{
+    {0.000, 0.447, 0.741},
+    {0.850, 0.325, 0.098},
+    {0.929, 0.694, 0.125},
+    {0.494, 0.184, 0.556},
+    {0.466, 0.674, 0.188},
+    {0.301, 0.745, 0.933},
+    {0.635, 0.078, 0.184},
+    {0.300, 0.300, 0.300},
+    {0.600, 0.600, 0.600},
+    {1.000, 0.000, 0.000},
+    {1.000, 0.500, 0.000},
+    {0.749, 0.749, 0.000},
+    {0.000, 1.000, 0.000},
+    {0.000, 0.000, 1.000},
+    {0.667, 0.000, 1.000},
+    {0.333, 0.333, 0.000},
+    {0.333, 0.667, 0.000},
+    {0.333, 1.000, 0.000},
+    {0.667, 0.333, 0.000},
+    {0.667, 0.667, 0.000},
+    {0.667, 1.000, 0.000},
+    {1.000, 0.333, 0.000},
+    {1.000, 0.667, 0.000},
+    {1.000, 1.000, 0.000},
+    {0.000, 0.333, 0.500},
+    {0.000, 0.667, 0.500},
+    {0.000, 1.000, 0.500},
+    {0.333, 0.000, 0.500},
+    {0.333, 0.333, 0.500},
+    {0.333, 0.667, 0.500},
+    {0.333, 1.000, 0.500},
+    {0.667, 0.000, 0.500},
+    {0.667, 0.333, 0.500},
+    {0.667, 0.667, 0.500},
+    {0.667, 1.000, 0.500},
+    {1.000, 0.000, 0.500},
+    {1.000, 0.333, 0.500},
+    {1.000, 0.667, 0.500},
+    {1.000, 1.000, 0.500},
+    {0.000, 0.333, 1.000},
+    {0.000, 0.667, 1.000},
+    {0.000, 1.000, 1.000},
+    {0.333, 0.000, 1.000},
+    {0.333, 0.333, 1.000},
+    {0.333, 0.667, 1.000},
+    {0.333, 1.000, 1.000},
+    {0.667, 0.000, 1.000},
+    {0.667, 0.333, 1.000},
+    {0.667, 0.667, 1.000},
+    {0.667, 1.000, 1.000},
+    {1.000, 0.000, 1.000},
+    {1.000, 0.333, 1.000},
+    {1.000, 0.667, 1.000},
+    {0.333, 0.000, 0.000},
+    {0.500, 0.000, 0.000},
+    {0.667, 0.000, 0.000},
+    {0.833, 0.000, 0.000},
+    {1.000, 0.000, 0.000},
+    {0.000, 0.167, 0.000},
+    {0.000, 0.333, 0.000},
+    {0.000, 0.500, 0.000},
+    {0.000, 0.667, 0.000},
+    {0.000, 0.833, 0.000},
+    {0.000, 1.000, 0.000},
+    {0.000, 0.000, 0.167},
+    {0.000, 0.000, 0.333},
+    {0.000, 0.000, 0.500},
+    {0.000, 0.000, 0.667},
+    {0.000, 0.000, 0.833},
+    {0.000, 0.000, 1.000},
+    {0.000, 0.000, 0.000},
+    {0.143, 0.143, 0.143},
+    {0.286, 0.286, 0.286},
+    {0.429, 0.429, 0.429},
+    {0.571, 0.571, 0.571},
+    {0.714, 0.714, 0.714},
+    {0.857, 0.857, 0.857},
+    {0.000, 0.447, 0.741},
+    {0.314, 0.717, 0.741},
+    {0.50, 0.5, 0}
+};
+
+struct Detection
+{
+	float conf;
+	int class_;
+	cv::Rect box;
+};
+
+class ObjectDetection : public rclcpp::Node {
+   rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr sub_raw_;
+   rclcpp::Publisher<interfaces::msg::Object>::SharedPtr pub_obj_;
+   ov::CompiledModel compiled_model_;
+   ov::InferRequest infer_request_;
+   std::shared_ptr<ov::Model> model_;
+
+   void init_model() {
+      ov::Core core;
+      model_ = core.read_model("src/openvino/include/best.onnx");
+
+      ov::preprocess::PrePostProcessor ppp = ov::preprocess::PrePostProcessor(model_);
+      ppp.input().tensor().set_element_type(ov::element::u8).set_layout("NHWC").set_color_format(ov::preprocess::ColorFormat::BGR);
+      ppp.input().preprocess().convert_element_type(ov::element::f32).convert_color(ov::preprocess::ColorFormat::RGB);
+      ppp.input().model().set_layout("NCHW");
+      ppp.output(0).tensor().set_element_type(ov::element::f32);
+      model_ = ppp.build();
+
+      compiled_model_ = core.compile_model(model_, "CPU");
+      infer_request_ = compiled_model_.create_infer_request();
+      RCLCPP_INFO(this->get_logger(), "Model initialized");
+   }
+
+   void detection_callback(const sensor_msgs::msg::Image::SharedPtr msg) {
+      if (!msg->data.size()) {
+         RCLCPP_ERROR(this->get_logger(), "No msg data recieved!!");
+         return;
+      }
+
+      cv_bridge::CvImagePtr cv_ptr;
+      try {
+         RCLCPP_INFO(this->get_logger(), "msg encoding type: %s", msg->encoding.c_str());
+         cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+         cv::Mat frame = cv_ptr->image;
+
+         auto detections = detect_objects(frame);
+
+         for (const auto &detection : detections) {
+            auto obj_msg = interfaces::msg::Object();
+            obj_msg.x = detection.box.x;
+            obj_msg.y = detection.box.y;
+            obj_msg.width = detection.box.width;
+            obj_msg.height = detection.box.height;
+            obj_msg.confidence = detection.conf;
+            obj_msg.name = coconame[detection.class_];
+            pub_obj_->publish(obj_msg);
+         }
+      } catch (cv_bridge::Exception &e) {
+         RCLCPP_ERROR(this->get_logger(), "cv_bridge exception: %s", e.what());
+      }
+   }
+
+   std::vector<Detection> detect_objects(cv::Mat &frame) {
+      // Preprocess the input frame
+      cv::Mat input_frame;
+      cv::Size new_shape(INPUT_WIDTH, INPUT_HEIGHT);
+      float width = frame.cols;
+      float height = frame.rows;
+      float ratio = std::min(new_shape.width / width, new_shape.height / height);
+
+      int new_width = int(width * ratio);
+      int new_height = int(height * ratio);
+
+      int padding_x = new_shape.width - new_width;
+      int padding_y = new_shape.height - new_height;
+
+      cv::resize(frame, input_frame, cv::Size(new_width, new_height), 0, 0, cv::INTER_AREA);
+      cv::copyMakeBorder(input_frame, input_frame, 0, padding_y, 0, padding_x, cv::BORDER_CONSTANT, cv::Scalar(128, 128, 128));
+
+      ov::Tensor input_tensor = ov::Tensor(compiled_model_.input().get_element_type(), compiled_model_.input().get_shape(), input_frame.data);;
+      infer_request_.set_input_tensor(input_tensor);
+
+      // Run inference
+      infer_request_.infer();
+
+      // Process output tensor
+      std::vector<Detection> results;
+
+      const ov::Tensor &output_tensor = infer_request_.get_output_tensor();
+      const float *detections = output_tensor.data<float>();
+      ov::Shape output_shape = output_tensor.get_shape();
+
+      std::vector<cv::Rect> boxes;
+      std::vector<int> class_ids;
+      std::vector<float> confidences;
+
+      for (size_t i = 0; i < output_shape[1]; ++i) {
+          float confidence = detections[i * (N_CLASSES + 5) + 4];
+
+          if (confidence < CONF_THRESH) continue;
+
+          const float *class_scores = &detections[i * (N_CLASSES + 5) + 5];
+          cv::Point class_id;
+          double max_class_score;
+          cv::minMaxLoc(cv::Mat(1, N_CLASSES, CV_32FC1, const_cast<float *>(class_scores)), 0, &max_class_score, 0, &class_id);
+          if (max_class_score < SCORE_THRESH) continue;
+
+          float x = detections[i * (N_CLASSES + 5) + 0];
+          float y = detections[i * (N_CLASSES + 5) + 1];
+          float w = detections[i * (N_CLASSES + 5) + 2];
+          float h = detections[i * (N_CLASSES + 5) + 3];
+
+          boxes.emplace_back(cv::Rect(x - w / 2, y - h / 2, w, h));
+          class_ids.push_back(class_id.x);
+          confidences.push_back(confidence);
+      }
+      
+      // Perform Non-Max Suppression
+      std::vector<int> nms_result;
+      cv::dnn::NMSBoxes(boxes, confidences, SCORE_THRESH, NMS_THRESH, nms_result);
+
+      for (const auto &idx : nms_result) {
+          results.push_back({confidences[idx], class_ids[idx], boxes[idx]});
+      }
+      return results;
+   }
+
+   public:
+      ObjectDetection() : Node("object_detection") {
+         sub_raw_ = this->create_subscription<sensor_msgs::msg::Image>("camera", 10, std::bind(&ObjectDetection::detection_callback, this, std::placeholders::_1));
+         pub_obj_ = this->create_publisher<interfaces::msg::Object>("object", 10);
+
+         init_model();
+      }
+};
+
+int main(int argc, char **argv) {
+   rclcpp::init(argc, argv);
+   rclcpp::spin(std::make_shared<ObjectDetection>());
+   rclcpp::shutdown();
+   return 0;
+}

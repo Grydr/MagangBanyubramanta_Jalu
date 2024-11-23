@@ -3,9 +3,9 @@
 #include <memory>
 #include <string>
 
+#include "interfaces/msg/commands.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/joy.hpp"
-#include "interfaces/msg/commands.hpp"
 
 using namespace std::chrono_literals;
 
@@ -29,62 +29,74 @@ using namespace std::chrono_literals;
 */
 
 class ControllerNode : public rclcpp::Node {
+  private:
+   rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr sub_;
+   rclcpp::Publisher<interfaces::msg::Commands>::SharedPtr pub_;
 
-   private:
-      rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr sub_;
-      rclcpp::Publisher<interfaces::msg::Commands>::SharedPtr pub_;
-      int x_range = -250;
-      int y_range = 250;
-      int yaw_range = -180;
-      int depth_range = 10;
-      int temp_depth = 0;
-      int temp_yaw = 0;
-      
-      void controller_callback(const sensor_msgs::msg::Joy &msg) {
-         // use axes[4] for depth
-         // if axes[4] is 1(up) then decrement depth;
-         if (msg.axes[4] > 0) {
-            if(temp_depth == 0) {
-               temp_depth = temp_depth + 1 ;
-            }
-            temp_depth--;
-         }
-         // if axes[4] is -1(down) then increment depth;
-         if (msg.axes[4] < 0) {
-            if(temp_depth == 10) {
-               temp_depth = temp_depth - 1;
-            }
-            temp_depth++;
-         }
+   void controller_callback(const sensor_msgs::msg::Joy &msg) {
+      // // use axes[4] for depth
+      // // if axes[4] is 1(up) then decrement depth;
+      // if (msg.axes[4] > 0) {
+      //    if(temp_depth == 0) {
+      //       temp_depth = temp_depth + 1 ;
+      //    }
+      //    temp_depth--;
+      // }
+      // // if axes[4] is -1(down) then increment depth;
+      // if (msg.axes[4] < 0) {
+      //    if(temp_depth == 10) {
+      //       temp_depth = temp_depth - 1;
+      //    }
+      //    temp_depth++;
+      // }
 
-         temp_yaw += msg.axes[3] * yaw_range;
-         if (temp_yaw < -180) {
-            temp_yaw = yaw_range * -1;
-         } else if ( temp_yaw > 180) {
-            temp_yaw = yaw_range;
-         }
+      // temp_yaw += msg.axes[3] * yaw_range;
+      // if (temp_yaw < -180) {
+      //    temp_yaw = yaw_range * -1;
+      // } else if ( temp_yaw > 180) {
+      //    temp_yaw = yaw_range;
+      // }
 
-         auto cmd = interfaces::msg::Commands();
-         cmd.x_cmd = msg.axes[0] * x_range; // move left & right using left stick
-         cmd.y_cmd = msg.axes[1] * y_range; // move up & down using left stick
-         cmd.depth = temp_depth;
-         cmd.yaw = temp_yaw;
-         cmd.solenoid = msg.buttons[3];
+      int x_cmd = value(static_cast<int>(msg.axes[0] * 2 + 3), 1, 3, 5);
+      int y_cmd = value(static_cast<int>(msg.axes[1] * 2 + 3), 1, 3, 5);
+      int yaw = value(static_cast<int>(msg.axes[3] * 2 + 3), 1, 3, 5);
+      int depth = value(static_cast<int>(msg.axes[4] * 2 + 3), 1, 3, 5);
 
-         // RCLCPP_INFO(this->get_logger(), "Parsing controller data");
-         pub_->publish(cmd);
+      auto cmd = interfaces::msg::Commands();
+      cmd.x_cmd = x_cmd;  // move left & right using left stick
+      cmd.y_cmd = y_cmd;  // move up & down using left stick
+      cmd.depth = depth;
+      cmd.yaw = yaw;
+
+      // RCLCPP_INFO(this->get_logger(), "Parsing controller data");
+      pub_->publish(cmd);
+   }
+
+   int value(int input, int min, int neutral, int max) {
+      int adjustedValue = input - neutral;  // Shift neutral to 0
+
+      if (adjustedValue + neutral < min) {
+         return min;
+      } else if (adjustedValue + neutral > max) {
+         return max;
+      } else {
+         return adjustedValue + neutral;
       }
+   }
 
-   public:
-      ControllerNode() : Node("controller_node") {
-         pub_ = this->create_publisher<interfaces::msg::Commands>("cmd_vel", 10);
-         sub_ = this->create_subscription<sensor_msgs::msg::Joy>("joy", 10, std::bind(&ControllerNode::controller_callback, this, std::placeholders::_1));
-      }
+  public:
+   ControllerNode() : Node("controller_node") {
+      pub_ = this->create_publisher<interfaces::msg::Commands>("cmd_vel", 10);
+      sub_ = this->create_subscription<sensor_msgs::msg::Joy>(
+          "joy", 10,
+          std::bind(&ControllerNode::controller_callback, this,
+                    std::placeholders::_1));
+   }
 };
 
 int main(int argc, char *argv[]) {
    rclcpp::init(argc, argv);
-   rclcpp::spin(std::make_shared<ControllerNode>()); 
+   rclcpp::spin(std::make_shared<ControllerNode>());
    rclcpp::shutdown();
    return 0;
 }

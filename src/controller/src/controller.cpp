@@ -34,32 +34,9 @@ class ControllerNode : public rclcpp::Node {
    rclcpp::Publisher<interfaces::msg::Commands>::SharedPtr pub_;
 
    void controller_callback(const sensor_msgs::msg::Joy &msg) {
-      // // use axes[4] for depth
-      // // if axes[4] is 1(up) then decrement depth;
-      // if (msg.axes[4] > 0) {
-      //    if(temp_depth == 0) {
-      //       temp_depth = temp_depth + 1 ;
-      //    }
-      //    temp_depth--;
-      // }
-      // // if axes[4] is -1(down) then increment depth;
-      // if (msg.axes[4] < 0) {
-      //    if(temp_depth == 10) {
-      //       temp_depth = temp_depth - 1;
-      //    }
-      //    temp_depth++;
-      // }
-
-      // temp_yaw += msg.axes[3] * yaw_range;
-      // if (temp_yaw < -180) {
-      //    temp_yaw = yaw_range * -1;
-      // } else if ( temp_yaw > 180) {
-      //    temp_yaw = yaw_range;
-      // }
-
-      int x_cmd = value(static_cast<int>(msg.axes[0] * 2 + 3), 1, 3, 5);
+      int x_cmd = value(static_cast<int>(msg.axes[0] * -2 + 3), 1, 3, 5);
       int y_cmd = value(static_cast<int>(msg.axes[1] * 2 + 3), 1, 3, 5);
-      int yaw = value(static_cast<int>(msg.axes[3] * 2 + 3), 1, 3, 5);
+      int yaw = value(static_cast<int>(msg.axes[3] * -2 + 3), 1, 3, 5);
       int depth = value(static_cast<int>(msg.axes[4] * 2 + 3), 1, 3, 5);
 
       auto cmd = interfaces::msg::Commands();

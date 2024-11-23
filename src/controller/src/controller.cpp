@@ -21,7 +21,7 @@ using namespace std::chrono_literals;
       axes index  action
          0        Left_Right_StickLeft
          1        Up_Down_StickLeft
-         2        Square/X
+         3 (buttons)        Square/X
          3        Left_Right_StickRight
          4        Up_Down_StickRight
          2        LT
@@ -44,6 +44,7 @@ class ControllerNode : public rclcpp::Node {
       cmd.y_cmd = y_cmd;  // move up & down using left stick
       cmd.depth = depth;
       cmd.yaw = yaw;
+      cmd.solenoid = msg.buttons[3];
 
       // RCLCPP_INFO(this->get_logger(), "Parsing controller data");
       pub_->publish(cmd);

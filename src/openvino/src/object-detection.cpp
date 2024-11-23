@@ -28,25 +28,6 @@ struct Detection {
 };
 
 class ObjectDetection : public rclcpp::Node {
-  public:
-   ObjectDetection() : Node("object_detection") {
-      this->declare_parameter<std::string>("model_path",
-                                           "src/openvino/include/best.onnx");
-
-      image_sub_ = this->create_subscription<sensor_msgs::msg::Image>(
-          "camera", rclcpp::SensorDataQoS(),
-          std::bind(&ObjectDetection::image_callback, this,
-                    std::placeholders::_1));
-
-      object_pub_ =
-          this->create_publisher<interfaces::msg::Object>("objects", 10);
-
-      image_with_box_pub_ =
-          this->create_publisher<sensor_msgs::msg::Image>("objects_box", 10);
-
-      init_model();
-   }
-
   private:
    void image_callback(const sensor_msgs::msg::Image::SharedPtr msg) {
       cv::Mat frame;
@@ -243,6 +224,25 @@ class ObjectDetection : public rclcpp::Node {
          RCLCPP_ERROR(this->get_logger(),
                       "Error initializing OpenVINO model: %s", e.what());
       }
+   }
+
+  public:
+   ObjectDetection() : Node("object_detection") {
+      this->declare_parameter<std::string>("model_path",
+                                           "src/openvino/include/best.onnx");
+
+      image_sub_ = this->create_subscription<sensor_msgs::msg::Image>(
+          "camera", rclcpp::SensorDataQoS(),
+          std::bind(&ObjectDetection::image_callback, this,
+                    std::placeholders::_1));
+
+      object_pub_ =
+          this->create_publisher<interfaces::msg::Object>("objects", 10);
+
+      image_with_box_pub_ =
+          this->create_publisher<sensor_msgs::msg::Image>("objects_box", 10);
+
+      init_model();
    }
 
    rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr image_sub_;

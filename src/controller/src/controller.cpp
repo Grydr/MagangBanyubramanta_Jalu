@@ -34,10 +34,10 @@ class ControllerNode : public rclcpp::Node {
    rclcpp::Publisher<interfaces::msg::Commands>::SharedPtr pub_;
 
    void controller_callback(const sensor_msgs::msg::Joy &msg) {
-      int x_cmd = value(static_cast<int>(msg.axes[0] * -2 + 3), 1, 3, 5);
-      int y_cmd = value(static_cast<int>(msg.axes[1] * 2 + 3), 1, 3, 5);
-      int yaw = value(static_cast<int>(msg.axes[3] * -2 + 3), 1, 3, 5);
-      int depth = value(static_cast<int>(msg.axes[4] * 2 + 3), 1, 3, 5);
+      int x_cmd = value(static_cast<int>(msg.axes[0] * -2 + 3), 2, 3, 4);
+      int y_cmd = value(static_cast<int>(msg.axes[1] * 2 + 3), 2, 3, 4);
+      int yaw = value(static_cast<int>(msg.axes[3] * -2 + 3), 2, 3, 4);
+      int depth = value(static_cast<int>(msg.axes[4] * 2 + 3), 2, 3, 4);
 
       auto cmd = interfaces::msg::Commands();
       cmd.x_cmd = x_cmd;  // move left & right using left stick

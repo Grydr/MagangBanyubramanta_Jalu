@@ -7,9 +7,38 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(gazebo_dev REQUIRED)
+find_package(gazebo_msgs REQUIRED)
+find_package(gazebo_plugins REQUIRED)
+find_package(gazebo_ros REQUIRED)
+find_package(gazebo_ros_pkgs REQUIRED)
+
+add_library(
+  controller SHARED
+  src/controller.cpp
+)
+ament_target_dependencies(controller 
+  rclcpp 
+  geometry_msgs
+  gazebo_dev 
+  gazebo_msgs 
+  gazebo_plugins 
+  gazebo_ros 
+  gazebo_ros_pkgs)
+
+install(
+  TARGETS controller
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+install(
+  DIRECTORY description launch worlds
+  DESTINATION share/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

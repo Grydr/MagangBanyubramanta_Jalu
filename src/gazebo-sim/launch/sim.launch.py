@@ -12,7 +12,7 @@ def generate_launch_description():
 
 	use_sim_time = LaunchConfiguration('use_sim_time', default=True)
 
-	pkg_name = 'sim' # change this
+	pkg_name = 'gazebo-sim' # change this
 
 	robot_state_publisher = Node(
 		package='robot_state_publisher',

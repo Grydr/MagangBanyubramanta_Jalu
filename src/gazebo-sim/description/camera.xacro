@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+   <xacro:macro name="camera" params="parent_link *origin">
+
+      <link name="camera_link" />
+      <link name="camera_frame" />
+
+      <joint name="camera_link_camera_frame_joint" type="fixed">
+         <parent link="camera_link" />
+         <child link="camera_frame" />
+         <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+      </joint>
+
+      <joint name="${parent_link}_camera_link_joint" type="fixed">
+         <parent link="${parent_link}" />
+         <child link="camera_link" />
+         <xacro:insert_block name="origin" />
+      </joint>
+
+      <gazebo reference="camera_link">
+         <sensor name="camera" type="camera">
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <camera name="camera">
+               <horizontal_fov>1.089</horizontal_fov>
+               <image>
+                  <format>B8G8R8</format>
+                  <width>640</width>
+                  <height>640</height>
+               </image>
+               <clip>
+                  <near>0.01</near>
+                  <far>10.0</far>
+               </clip>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+               <frame_name>camera_frame</frame_name>
+            </plugin>
+         </sensor>
+      </gazebo>
+
+   </xacro:macro>
+
+</robot>

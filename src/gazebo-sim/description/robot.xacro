@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ronald">
+
+   <!-- Include macros -->
+
+   <xacro:include filename="inertia.xacro" />
+   <xacro:include filename="camera.xacro" />
+
+   <!-- Define properties -->
+
+   <xacro:property name="length" value="0.5" />
+   <xacro:property name="width" value="0.4" />
+   <xacro:property name="height" value="0.3" />
+   <xacro:property name="mass" value="10" />
+
+   <!-- Define descriptions -->
+
+   <link name="base_link" />
+
+   <link name="chassis">
+
+      <visual>
+         <geometry>
+            <box size="${length} ${width} ${height}" />
+         </geometry>
+      </visual>
+
+      <collision>
+         <geometry>
+            <box size="${length} ${width} ${height}" />
+         </geometry>
+      </collision>
+
+      <xacro:inertial_box x="${length}" y="${width}" z="${height}" m="${mass}">
+         <origin xyz="0 0 0" />
+      </xacro:inertial_box>
+
+   </link>
+
+   <joint name="base_link_chassis_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="chassis" />
+      <origin xyz="0 0 0" />
+   </joint>
+
+   <xacro:camera parent_link="chassis">
+      <origin xyz="${length / 2} 0 0" />
+   </xacro:camera>
+
+   <gazebo>
+      <plugin name="controller" filename="libcontroller.so">
+         <ros>
+            <remapping>cmd_vel:=cmd_vel</remapping>
+         </ros>
+      </plugin>
+      <!-- <gravity>false</gravity> -->
+   </gazebo>
+
+</robot>

@@ -14,10 +14,18 @@ find_package(gazebo_msgs REQUIRED)
 find_package(gazebo_plugins REQUIRED)
 find_package(gazebo_ros REQUIRED)
 find_package(gazebo_ros_pkgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+
+include_directories(include())
 
 add_library(
   controller SHARED
   src/controller.cpp
+  src/pid.cpp
 )
 ament_target_dependencies(controller 
   rclcpp 
@@ -26,7 +34,12 @@ ament_target_dependencies(controller
   gazebo_msgs 
   gazebo_plugins 
   gazebo_ros 
-  gazebo_ros_pkgs)
+  gazebo_ros_pkgs
+  nav_msgs 
+  sensor_msgs 
+  tf2 
+  tf2_geometry_msgs
+  tf2_ros)
 
 install(
   TARGETS controller

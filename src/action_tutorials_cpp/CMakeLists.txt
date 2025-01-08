@@ -7,7 +7,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(action_tutorials_interfaces REQUIRED)
+find_package(interfaces REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(rclcpp_components REQUIRED)
@@ -18,10 +18,8 @@ add_library(action_server SHARED
 target_include_directories(action_server PRIVATE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_definitions(action_server
-  PRIVATE "ACTION_TUTORIALS_CPP_BUILDING_DLL")
 ament_target_dependencies(action_server
-  "action_tutorials_interfaces"
+  "interfaces"
   "rclcpp"
   "rclcpp_action"
   "rclcpp_components")
@@ -38,10 +36,8 @@ add_library(action_client SHARED
 target_include_directories(action_client PRIVATE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_definitions(action_client
-  PRIVATE "ACTION_TUTORIALS_CPP_BUILDING_DLL")
 ament_target_dependencies(action_client
-  "action_tutorials_interfaces"
+  "interfaces"
   "rclcpp"
   "rclcpp_action"
   "rclcpp_components")

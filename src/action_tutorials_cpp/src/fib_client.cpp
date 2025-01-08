@@ -4,7 +4,7 @@
 #include <sstream>
 #include <string>
 
-#include "action_tutorials_interfaces/action/fibonacci.hpp"
+#include "interfaces/action/fibonacci.hpp"
 
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
@@ -13,7 +13,7 @@
 namespace action_tutorials_cpp {
 class FibonacciActionClient : public rclcpp::Node {
  public:
-   using Fibonacci = action_tutorials_interfaces::action::Fibonacci;
+   using Fibonacci = interfaces::action::Fibonacci;
    using GoalHandleFibonacci = rclcpp_action::ClientGoalHandle<Fibonacci>;
 
    explicit FibonacciActionClient(const rclcpp::NodeOptions &options) : Node("fibonacci_action_client", options) {

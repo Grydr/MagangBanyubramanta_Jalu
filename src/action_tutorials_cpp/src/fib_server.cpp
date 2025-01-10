@@ -13,21 +13,17 @@ class FibonacciActionServer : public rclcpp::Node {
    using Fibonacci = interfaces::action::Fibonacci;
    using GoalHandleFibonacci = rclcpp_action::ServerGoalHandle<Fibonacci>;
 
-   explicit FibonacciActionServer(const rclcpp::NodeOptions &options = rclcpp::NodeOptions())
-       : Node("fibonacci_action_server", options) {
+   explicit FibonacciActionServer(const rclcpp::NodeOptions &options = rclcpp::NodeOptions()) : Node("fibonacci_action_server", options) {
       using namespace std::placeholders;
 
-      this->action_server_ = rclcpp_action::create_server<Fibonacci>(
-          this, "fibonacci", std::bind(&FibonacciActionServer::handle_goal, this, _1, _2),
-          std::bind(&FibonacciActionServer::handle_cancel, this, _1),
-          std::bind(&FibonacciActionServer::handle_accepted, this, _1));
+      this->action_server_ = rclcpp_action::create_server<Fibonacci>(this, "fibonacci", std::bind(&FibonacciActionServer::handle_goal, this, _1, _2), std::bind(&FibonacciActionServer::handle_cancel, this, _1),
+                                                                     std::bind(&FibonacciActionServer::handle_accepted, this, _1));
    }
 
  private:
    rclcpp_action::Server<Fibonacci>::SharedPtr action_server_;
 
-   rclcpp_action::GoalResponse handle_goal(const rclcpp_action::GoalUUID &uuid,
-                                           std::shared_ptr<const Fibonacci::Goal> goal) {
+   rclcpp_action::GoalResponse handle_goal(const rclcpp_action::GoalUUID &uuid, std::shared_ptr<const Fibonacci::Goal> goal) {
       RCLCPP_INFO(this->get_logger(), "Received goal request with order %d", goal->order);
       (void)uuid;
       return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;

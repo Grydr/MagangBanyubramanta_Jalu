@@ -1,0 +1,12 @@
+# The desired heading 
+float32 x
+float32 y
+float32 theta
+---
+# Action status
+bool success
+---
+# The remaining rotation in radians
+float32 curr_x
+float32 curr_y
+float32 remaining_dist

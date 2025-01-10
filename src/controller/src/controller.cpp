@@ -45,17 +45,17 @@ class ControllerNode : public rclcpp::Node {
       }
    }
 
-   int solenoid_past = 0;
+   // int solenoid_past = 0;
    int solenoid_state = 0;
 
    int checkSolenoid(const int msg) {
       int solenoid_input = msg;
 
-      if (solenoid_past == 0 && solenoid_input == 1) {
+      if (solenoid_input == 1) {
          solenoid_state = !solenoid_state;
       }
 
-      solenoid_past = solenoid_state;
+      // solenoid_past = solenoid_state;
       return solenoid_state;
    }
 
@@ -65,10 +65,10 @@ class ControllerNode : public rclcpp::Node {
       // int yaw = value(static_cast<int>(msg.axes[3] * -2 + 3), 2, 3, 4);
       // int depth = value(static_cast<int>(msg.axes[4] * 2 + 3), 2, 3, 4);
 
-      int x_cmd = value(static_cast<int>(msg.axes[0] * -5 + 4), 0, 4, 9);
-      int y_cmd = value(static_cast<int>(msg.axes[1] * 5 + 4), 0, 4, 9);
-      int yaw = value(static_cast<int>(msg.axes[3] * -5 + 4), 0, 4, 9);
-      int depth = value(static_cast<int>(msg.axes[4] * 5 + 4), 0, 4, 9);
+      int x_cmd = value(static_cast<int>(msg.axes[0] * -5 + 5), 1, 5, 9);
+      int y_cmd = value(static_cast<int>(msg.axes[1] * 5 + 5), 1, 5, 9);
+      int yaw = value(static_cast<int>(msg.axes[3] * -5 + 5), 1, 5, 9);
+      int depth = value(static_cast<int>(msg.axes[4] * 5 + 5), 1, 5, 9);
       int solenoid = checkSolenoid(static_cast<int>(msg.buttons[3]));
 
       auto cmd = interfaces::msg::Commands();
@@ -85,8 +85,7 @@ class ControllerNode : public rclcpp::Node {
  public:
    ControllerNode() : Node("controller_node") {
       pub_ = this->create_publisher<interfaces::msg::Commands>("cmd_vel", 10);
-      sub_ = this->create_subscription<sensor_msgs::msg::Joy>(
-          "joy", 10, std::bind(&ControllerNode::controller_callback, this, std::placeholders::_1));
+      sub_ = this->create_subscription<sensor_msgs::msg::Joy>("joy", 10, std::bind(&ControllerNode::controller_callback, this, std::placeholders::_1));
    }
 };
 

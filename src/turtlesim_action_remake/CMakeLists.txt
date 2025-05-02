@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(logger_action_bt)
+project(turtlesim_action_remake)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -8,7 +8,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(behaviortree_cpp_v3 REQUIRED)
+# find_package(behaviortree_cpp_v3 REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
